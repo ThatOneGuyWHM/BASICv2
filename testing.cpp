@@ -1,3 +1,5 @@
+/*
+
 #include <iostream>
 #include <sstream>
 #include <map>
@@ -42,6 +44,31 @@ int main() {
         }
 
         interpret(input);
+    }
+
+    return 0;
+}
+
+*/
+
+// main.cpp
+#include "interpreter.cpp"
+#include <iostream>
+#include <map>
+
+int main() {
+    std::map<std::string, double> variables;
+
+    while (true) {
+        std::string input;
+        std::cout << "> ";
+        std::getline(std::cin, input);
+
+        if (input == "QUIT") {
+            break;
+        }
+
+        interpret(input, variables);
     }
 
     return 0;
