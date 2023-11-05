@@ -4,7 +4,7 @@
 #include <string>
 using namespace std;
 
-map<string, int> variables;
+map<string, double> variables; // Int variables 
 
 void interpret(string statement) {
   istringstream iss(statement);
@@ -13,16 +13,20 @@ void interpret(string statement) {
 
   //cout << "\n\n" << command << "\n";
 
-  if (command == "LET") {
+  if (command == "NUM") {
     string varName;
+    double data;
     iss >> varName;
+    iss >> data;
 
     cout << varName << "\n";    
     
     if (variables.find(varName) == variables.end()) {
-        variables[varName] = 0;
+      variables[varName] = data;
     }
-    
+    else {
+      cout << "Variable already initialised";
+    }
     cout << variables[varName] << "\n";
   }
 }
